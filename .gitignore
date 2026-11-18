@@ -63,3 +63,9 @@ automation/raw.md
 
 # Scratch analysis files.
 automation/tmp/
+
+# Output of the certificate generators (merged into the aux files by consolidate.py).
+automation/cert/out/
+
+# Agent worktrees.
+.claude/worktrees/

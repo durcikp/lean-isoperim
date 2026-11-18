@@ -10,10 +10,7 @@ public import Isoperim.DIR.«2_Envelope_Functions».Definitions
 public import Isoperim.DIR.«3_Variants_Bobkov_Inequality».«3_0_Variants_Bobkov_Inequality»
 public import Isoperim.DIR.«5_Auxiliary_Estimates».«5_3_Properties_L_Q»
 public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_6_Case_QJ_aux»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_6_Case_QJ_aux_cert_g1_b0»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_6_Case_QJ_aux_cert_g1_h»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_6_Case_QJ_aux_cert_g2»
+public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_6_Case_QJ_aux_7»
 
 /-!
 # [DIR] §6.6 Case $QJ$: $\frac14\le x\le\frac12\le y\le1$, $x+y\ge1$
@@ -167,7 +164,8 @@ for $(\beta,c)\in\{(\beta_0,1),(\frac12,c_0)\}$).
 **Unused hypothesis.** The paper assumes $x+y\ge1$ (triangle I); this is not needed for the claim
 and is omitted in the Lean statement. -/
 theorem g_QJ_deriv_x_nonpos (β c : ℝ) (hβc : (β, c) = (β₀, 1) ∨ (β, c) = (2⁻¹, c₀))
-    (x y : ℝ) (hx : x ∈ Icc (3 / 8 : ℝ) 2⁻¹) (hy : y ∈ Icc (2⁻¹ : ℝ) (5 / 8)) : deriv (fun x ↦ g_QJ β c x y) x ≤ 0 := by
+    (x y : ℝ) (hx : x ∈ Icc (3 / 8 : ℝ) 2⁻¹) (hy : y ∈ Icc (2⁻¹ : ℝ) (5 / 8)) :
+    deriv (fun x ↦ g_QJ β c x y) x ≤ 0 := by
   have hβ : 0 < β := by
     rcases hβc with h | h <;> simp only [Prod.mk.injEq] at h <;> rw [h.1] <;> norm_num [β₀]
   have := eqn_6_26 β c hβc x y ⟨by linarith [hx.1], hx.2⟩ hy

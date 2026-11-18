@@ -23,7 +23,9 @@ from checker_witness import J_witness, DJ_witness, Jw, w0  # noqa: E402
 mp.mp.dps = 50
 WL, WU = "0.895769326048", "0.895769326057"
 W0 = w0()
-DIR = "Isoperim/DIR/6_Proof_Two_Point_Inequality"
+# Output directory of the generators: the generated modules are merged into the consolidated
+# auxiliary files by `automation/cert/consolidate.py` (`check` compares them).
+DIR = "automation/cert/out"
 
 
 def boxes(name):
@@ -179,5 +181,6 @@ def DJ_entry(name, x, margin=mp.mpf("1e-10"), digits=12):
 
 
 def write(path, text):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         f.write(text)

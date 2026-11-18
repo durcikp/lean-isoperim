@@ -187,6 +187,11 @@ lake build
   [DIRX] reuses [DIR] definitions; remove descriptive paper comments; remove the
   computer-assisted sections; remove everything not needed for the introduction theorems.
 
+- **2026-11-18** (user): clean up the code and resolve all compiler and linter warnings; all
+  auxiliary code of a main file in one `_aux.lean` file, continued in `_aux_2.lean`, ... only when
+  a file would exceed 10 000 lines (recorded in `AGENTS.md`, rule 1); the final result must build
+  without errors.
+
 ## Settled decisions
 
 - Proof-section claims reference later results only in comments (setup phase). When proofs are

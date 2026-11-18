@@ -10,7 +10,8 @@ instead of the paper's (m_u < x0), m_u = (x_u + y_u)/2; for the rectangles with 
 paper's lower bound needs a few subdivisions.
 
 Usage (from the repository root): python3 automation/cert/gen_gQJ1.py
-Writes Isoperim/DIR/6_Proof_Two_Point_Inequality/6_6_Case_QJ_aux_cert_g1_*.lean.
+Writes automation/cert/out/6_6_Case_QJ_aux_cert_g1_*.lean (merged into the consolidated aux files, see
+automation/cert/consolidate.py).
 """
 import mpmath as mp
 from fractions import Fraction as F

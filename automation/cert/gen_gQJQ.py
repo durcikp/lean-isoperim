@@ -10,7 +10,8 @@ bound of J(y)J'(y) on the rectangle) instead of the paper's J(y_u)J'(y_u); with 
 lower bound `Auto.DIR.g_QJQ_lo` most of their rectangles have to be subdivided.
 
 Usage (from the repository root): python3 automation/cert/gen_gQJQ.py
-Writes Isoperim/DIR/6_Proof_Two_Point_Inequality/6_5_Case_QJQ_aux_cert_*.lean.
+Writes automation/cert/out/6_5_Case_QJQ_aux_cert_*.lean (merged into the consolidated aux files, see
+automation/cert/consolidate.py).
 """
 import mpmath as mp
 from fractions import Fraction as F

@@ -9,11 +9,7 @@ public import Isoperim.DIR.«1_Introduction».Definitions
 public import Isoperim.DIR.«2_Envelope_Functions».Definitions
 public import Isoperim.DIR.«3_Variants_Bobkov_Inequality».«3_0_Variants_Bobkov_Inequality»
 public import Isoperim.DIR.«5_Auxiliary_Estimates».«5_2_Two_Point_Inequalities»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J_aux»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J_aux_gJ2_main»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J_aux_gJ1a_main»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J_aux_gJ1b_main»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J_aux_cont»
+public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J_aux_16»
 
 /-!
 # [DIR] §6 Proof of the two-point inequality, §6.1 Case J

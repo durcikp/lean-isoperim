@@ -10,10 +10,7 @@ public import Isoperim.DIR.«2_Envelope_Functions».Definitions
 public import Isoperim.DIR.«3_Variants_Bobkov_Inequality».«3_0_Variants_Bobkov_Inequality»
 public import Isoperim.DIR.«5_Auxiliary_Estimates».«5_3_Properties_L_Q»
 public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_1_Case_J»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_3_Case_LJQ_aux»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_3_Case_LJQ_aux_g1_b0_main»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_3_Case_LJQ_aux_g1_h_main»
-public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_3_Case_LJQ_aux_g2_main»
+public import Isoperim.DIR.«6_Proof_Two_Point_Inequality».«6_3_Case_LJQ_aux_8»
 
 /-!
 # [DIR] §6.3 Case LJQ: $0\le x\le\frac14$, $\frac12\le y\le1$, $x+y\le1$
@@ -131,11 +128,11 @@ theorem lemma_6_7_mono (β : ℝ) (hβ : β ∈ Ico (2⁻¹ : ℝ) (log₂ (3 / 
     intro a ha b hb hab
     have := hm ha hb hab
     simp only [zero_mul, add_zero] at this
-    show deriv (deriv (L β)) a + 2 * α₀ β + 4 * α₁ β * (a + y) ≤
+    change deriv (deriv (L β)) a + 2 * α₀ β + 4 * α₁ β * (a + y) ≤
       deriv (deriv (L β)) b + 2 * α₀ β + 4 * α₁ β * (b + y)
     nlinarith
   · intro a _ b _ hab
-    show deriv (deriv (L β)) x + 2 * α₀ β + 4 * α₁ β * (x + a) ≤
+    change deriv (deriv (L β)) x + 2 * α₀ β + 4 * α₁ β * (x + a) ≤
       deriv (deriv (L β)) x + 2 * α₀ β + 4 * α₁ β * (x + b)
     nlinarith
 
@@ -196,7 +193,7 @@ theorem lemma_6_7 (β : ℝ) (hβ : β ∈ Icc (2⁻¹ : ℝ) 1) (y : ℝ) (hy :
     exact (((continuousOn_const.sub continuousOn_id).add continuousOn_const).add hL).sub
       (continuousOn_const.mul hQ)
   rw [interior_Icc] at hx
-  show deriv (deriv (fun x ↦ G_LJQ β x y)) x < 0
+  change deriv (deriv (fun x ↦ G_LJQ β x y)) x < 0
   rw [lemma_6_7_deriv2 β x y ⟨hx.1, hx.2.le⟩, eqn_6_14]
   by_cases hα : α₁ β > 0
   · have hβ' : β ∈ Ico 2⁻¹ (log₂ (3 / 2)) := ⟨hβ.1, (α₁_pos_iff β).1 hα⟩
@@ -467,7 +464,7 @@ end Proof_Claim_1
 $\beta\in[\frac12,1]$). -/
 theorem caseLJQ_claim_1 (β : ℝ) (hβ : β ∈ Icc (2⁻¹ : ℝ) 1) (y : ℝ)
     (hy : y ∈ Icc (2⁻¹ : ℝ) 1) : G_LJQ β 0 y ≥ 0 := by
-  show f_LJQ_1 β y ≥ 0
+  change f_LJQ_1 β y ≥ 0
   exact le_trans (le_min (f_LJQ_1_half_nonneg y hy) (f_LJQ_1_one_nonneg y hy))
     (f_LJQ_1_ge_min β hβ y)
 
@@ -558,7 +555,7 @@ theorem f_LJQ_3_half_concaveOn : ConcaveOn ℝ (Icc (3 / 4) 1) (f_LJQ_3 2⁻¹) 
     exact (derivs_fJL _ _ (hsub z hz)).2.2.differentiableAt.differentiableWithinAt
   · rw [interior_Icc] at hz
     have h := f_LJQ_3_half_deriv2 z hz
-    show deriv (deriv (f_LJQ_3 2⁻¹)) z ≤ 0
+    change deriv (deriv (f_LJQ_3 2⁻¹)) z ≤ 0
     rw [h.1]; exact h.2
 
 /-- [DIR], §6.3.2, proof of (3): $f_{\frac12}(1)=0$. -/
@@ -582,7 +579,7 @@ theorem caseLJQ_claim_3 (β : ℝ) (hβ : β ∈ Icc (2⁻¹ : ℝ) 1) (y : ℝ)
     ⟨by norm_num, le_rfl⟩ hy
   have h1 := f_LJQ_3_half_one
   have h2 := eqn_6_18
-  show f_LJQ_3 β y ≥ 0
+  change f_LJQ_3 β y ≥ 0
   simp only at hm
   have : 0 ≤ min (f_LJQ_3 2⁻¹ (3 / 4)) (f_LJQ_3 2⁻¹ 1) := le_min (by linarith) h1.ge
   linarith

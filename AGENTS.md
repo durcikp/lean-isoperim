@@ -11,8 +11,13 @@
    The main file imports its `_aux` file; the `_aux` file must not import the main file (state
    results of the main file that an auxiliary lemma needs as hypotheses of that lemma). Same
    header, namespace (`Auto.DIR` / `Auto.DIRX`), notation and docstring conventions as the main
-   files; add the `_aux` module to `Isoperim.lean`. Do not change the statements of the scaffold
-   (only exception: rule 7).
+   files; add the `_aux` module to `Isoperim.lean`. All auxiliary code of a main file goes into
+   this one `_aux` file; only when it would exceed 10 000 lines is it continued in
+   `<name>_aux_2.lean` (importing `<name>_aux.lean`), then `<name>_aux_3.lean`, ... (the main file
+   imports the last part); no other auxiliary files (user requirement, 2026-11-18). Generated
+   certificate code is marked `-- BEGIN GENERATED` / `-- END GENERATED` (see
+   `automation/cert/consolidate.py`). Do not change the statements of the scaffold (only
+   exception: rule 7).
 2. **Completion.** A proof is complete only when it no longer depends on `sorry`, directly or
    transitively (check with `#print axioms <name>`).
 3. **Axioms.** Allowed: only the standard Lean axioms `propext`, `Classical.choice`,
